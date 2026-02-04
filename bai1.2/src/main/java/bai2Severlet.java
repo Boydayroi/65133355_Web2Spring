@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-// Tên Class bắt buộc phải là bai2Severlet (trùng với tên file của bạn)
+
 @WebServlet("/testDoPost")
 public class bai2Severlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
