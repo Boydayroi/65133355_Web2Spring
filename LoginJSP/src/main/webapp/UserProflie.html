@@ -1,59 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Hồ sơ sinh viên</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f0f2f5;
-        }
-        .container {
-            background-color: white;
-            width: 400px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #28a745; /* Màu xanh lá báo hiệu thành công */
-        }
-        .user-name {
-            color: #007bff;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        .logout-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .logout-btn:hover {
-            background-color: #c82333;
-        }
-    </style>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hà Nguyễn Tiến Thịnh - Portfolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <img src="image/avt1.jpg" alt="Hà Nguyễn Tiến Thịnh" class="avatar">
+                    <div class="avatar-ring"></div>
+                </div>
+                <h1 class="profile-name">Hà Nguyễn Tiến Thịnh</h1>
+                <p class="profile-title">Java Developer & Student</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#about" class="nav-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#resume" class="nav-item">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Resume</span>
+                </a>
+                <a href="#contact" class="nav-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            
+            <div class="copyright">
+                <i class="fa-solid fa-copyright"></i>
+                <p>2026 <strong>Ha Nguyen Tien Thinh</strong></p>
+            </div>
+        </div>
+    </aside>
 
-    <div class="container">
-        <h1>Đăng nhập thành công!</h1>
-        
-        <p>Xin chào sinh viên:</p>
-        <div class="user-name">Hà Nguyễn Tiến Thịnh</div>
-        
-        <p><i>(MSSV: 65133355)</i></p>
-        <hr>
-        <p>Đây là trang Profile cá nhân của bạn.</p>
-        
-        <a href="Login.html" class="logout-btn">Đăng xuất</a>
-    </div>
+    <main class="main-content">
+        <section id="about" class="section about-section">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Student at Nha Trang University (NTU)</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="image/avt1.jpg" alt="Profile">
+                    <div class="image-decoration"></div>
+                </div>
+                
+                <div class="about-info">
+                    <h3 class="info-title">Java Web Developer</h3>
+                    <p class="info-description">
+                        Hiện là sinh viên năm 3 chuyên ngành Công nghệ thông tin. 
+                        Đam mê lập trình Java, Servlet, JSP và xây dựng các ứng dụng Web hiệu quả.
+                    </p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Full Name:</span>
+                            <span class="value">Hà Nguyễn Tiến Thịnh</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">MSSV:</span>
+                            <span class="value">65133355</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Birthday:</span>
+                            <span class="value">11/03/2005</span> </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Degree:</span>
+                            <span class="value">3rd Year Student</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Phone:</span>
+                            <span class="value">0766069050</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Email:</span>
+                            <span class="value">thinh.hnt@ntu.edu.vn</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">City:</span>
+                            <span class="value">Nha Trang, Khánh Hòa</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="label">Freelance:</span>
+                            <span class="value">Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="resume" class="section resume-section">
+            <div class="section-header">
+                <h2 class="section-title">Resume</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+           
+                
+              <div class="resume-column">
+                                     
+                    <div class="resume-item">
+                        <h4 class="resume-title">Web Developer Intern</h4>
+                        <span class="resume-period">2025 - 2027</span>
+                        <p class="resume-company">Gravity Global Company</p>
+                        <ul class="resume-list">
+                            <li>Contributed to multiple client projects and internal tools development</li>
+                            <li>Gained hands-on experience with industry-standard development workflows</li>
+                            <li>Participated in code reviews and agile development processes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="section-header">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Nha Trang University</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>thinh.hnt.65133355@st.ntu.edu.vn</p> </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
 </html>
