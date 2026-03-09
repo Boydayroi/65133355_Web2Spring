@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Lời Chào</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .highlight {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Xin chào, <span class="highlight" th:text="${name}"></span>!</h1>
+    
+    <p>Chúc bạn một ngày làm việc với Spring Boot thật hiệu quả.</p>
+
+</body>
+</html>
