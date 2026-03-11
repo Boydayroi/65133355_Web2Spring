@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Danh sách Page và Post</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #e8f4f8; }
+    </style>
+</head>
+<body>
+
+    <h2>Danh Sách Các Trang (Pages)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Trang (Page Name)</th>
+                <th>Từ Khóa (Keyword)</th>
+                <th>Nội Dung (Content)</th>
+                <th>ID Trang Cha (Parent ID)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="page : ${dsTrang}">
+                <td th:text="${page.id}"></td>
+                <td th:text="${page.pageName}"></td>
+                <td th:text="${page.keyword}"></td>
+                <td th:text="${page.content}"></td>
+                <td th:text="${page.parentPageId}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Danh Sách Bài Viết (Posts)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tiêu Đề (Title)</th>
+                <th>Nội Dung (Content)</th>
+                <th>Danh Mục ID (Category ID)</th>
+                <th>Ảnh Thu Nhỏ (Thumbnail)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post : ${dsBaiViet}">
+                <td th:text="${post.id}"></td>
+                <td th:text="${post.title}"></td>
+                <td th:text="${post.content}"></td>
+                <td th:text="${post.categoryId}"></td>
+                <td th:text="${post.thumbnailImage}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
