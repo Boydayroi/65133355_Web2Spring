@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Danh sách sinh viên</title>
+</head>
+<body>
+	<table border = "1">
+		<thead>
+	        <tr>
+	            <th>MSSV</th>
+	            <th>Tên sinh viên</th>
+	            <th>Năm sinh</th>
+	            <th>Giới tính</th>
+	        </tr>
+    	</thead>
+	    <tbody>
+	        <tr th:each="sv:${sinhviens}">
+	            <td th:text="${sv.mssv}"></td>
+	            <td th:text="${sv.name}"></td>
+	            <td th:text="${sv.namsinh}"></td>
+	            <td th:text="${sv.gtinh}"></td>
+	        </tr>
+	    </tbody>
+	</table>
+</body>
+</html>
