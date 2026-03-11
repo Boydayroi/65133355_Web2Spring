@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Times New Roman;
+}
+
+.container{
+    width:100%;
+    height:100vh;
+    border:1px solid black;
+    display:flex;
+    flex-direction:column;
+}
+
+
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid black;
+    padding:10px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:50px;
+}
+
+.username{
+    font-size:18px;
+}
+
+
+
+.main{
+    flex:1;
+    display:flex;
+}
+
+
+
+.sidebar{
+    width:220px;
+    border-right:1px solid black;
+    padding:10px;
+}
+
+.menu-title{
+    font-weight:bold;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    border:1px solid #999;
+    padding:8px;
+    margin-bottom:5px;
+    background:#eee;
+}
+
+
+
+.content{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+
+
+.footer{
+    text-align:center;
+    border-top:1px solid black;
+    padding:8px;
+}
+</style>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+            <div>
+                <div>TRƯỜNG ĐẠI HỌC NHA TRANG</div>
+                <div>KHOA CÔNG NGHỆ THÔNG TIN</div>
+            </div>
+        </div>
+
+        <div class="username">[UserName]</div>
+    </div>
+
+   
+    <div class="main">
+
+     
+        <div class="sidebar">
+            <div class="menu-title">Dasdboard</div>
+            <ul>
+                <li>Page -List</li>
+                <li>Page -Addnew</li>
+                <li>Post -List</li>
+                <li>Post -Addnew</li>
+            </ul>
+        </div>
+
+  
+        <div class="content">
+           
+        </div>
+
+    </div>
+
+   
+    <div class="footer">
+        ©2025 by Student Name – FIT.NTU
+    </div>
+
+</div>
+
+</body>
+</html>
