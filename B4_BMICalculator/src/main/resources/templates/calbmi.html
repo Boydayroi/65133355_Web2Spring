@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tính BMI</title>
+</head>
+<body>
+	<table border = 1px solid>
+		<table>
+			<tr>
+				<td>Cân nặng của bạn (kg):</td>
+				<td th:text=${w}></td>
+			</tr>
+			<tr>
+				<td>Chiều cao của bạn (m):</td>
+				<td th:text=${h}></td>
+			</tr>
+			<tr>
+				<td>Chỉ số BMI của bạn:</td>
+				<td th:text=${kq}></td>
+			</tr>
+		</table>
+	</table>
+</body>
+</html>
