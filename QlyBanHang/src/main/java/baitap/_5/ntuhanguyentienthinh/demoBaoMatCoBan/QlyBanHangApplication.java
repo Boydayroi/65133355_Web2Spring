@@ -1,0 +1,13 @@
+package baitap._5.ntuhanguyentienthinh.demoBaoMatCoBan;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class QlyBanHangApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(QlyBanHangApplication.class, args);
+	}
+
+}
