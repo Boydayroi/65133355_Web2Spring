@@ -2,34 +2,86 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Danh sách Sản Phẩm</title>
-    <style> table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; } </style>
+    <title>Hệ Thống Quản Lý Sản Phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f7f6; }
+        .hover-card { transition: all 0.3s ease; border: none; border-radius: 15px; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important; }
+        .table-custom th { background: linear-gradient(45deg, #1d2b64, #f8cdda); color: white; border: none; }
+        .btn-pill { border-radius: 50px; padding: 8px 20px; font-weight: 500; transition: 0.2s; }
+        .btn-pill:hover { transform: scale(1.05); }
+    </style>
 </head>
-<body>
-    <h2>Phân loại sản phẩm</h2>
-    <ul>
-        <li><a th:href="@{/sanpham}">Tất cả sản phẩm</a></li>
-        <li th:each="tl : ${danhSachTheLoai}">
-            <a th:href="@{/sanpham/theloai/{id}(id=${tl.id})}" th:text="${tl.tenTheLoai}"></a>
-        </li>
-    </ul>
+<body class="d-flex flex-column min-vh-100">
 
-    <h2>Danh sách Sản Phẩm</h2>
-    <table>
-        <tr>
-            <th>Mã SP</th>
-            <th>Tên Sản Phẩm</th>
-            <th>Giá</th>
-            <th>Thể Loại</th>
-            <th>Hành động</th>
-        </tr>
-        <tr th:each="sp : ${danhSachSP}">
-            <td th:text="${sp.id}"></td>
-            <td th:text="${sp.tenSanPham}"></td>
-            <td th:text="${sp.gia} + ' VNĐ'"></td>
-            <td th:text="${sp.theLoai.tenTheLoai}"></td>
-            <td><a th:href="@{/sanpham/chitiet/{id}(id=${sp.id})}">Xem chi tiết</a></td>
-        </tr>
-    </table>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/sanpham">
+                <i class="fa-solid fa-store text-warning me-2"></i> FIT-NTU Store
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-5 flex-grow-1">
+        <h2 class="text-center fw-bold mb-4" style="color: #2c3e50;">
+            <i class="fa-solid fa-box-open me-2"></i>QUẢN LÝ SẢN PHẨM
+        </h2>
+
+        <div class="card shadow-sm hover-card mb-4">
+            <div class="card-body text-center p-4">
+                <h5 class="card-title text-muted mb-3"><i class="fa-solid fa-filter me-2"></i>Bộ lọc danh mục</h5>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a th:href="@{/sanpham}" class="btn btn-dark btn-pill shadow-sm">
+                        <i class="fa-solid fa-border-all me-1"></i> Tất cả
+                    </a>
+                    <a th:each="tl : ${danhSachTheLoai}" 
+                       th:href="@{/sanpham/theloai/{id}(id=${tl.id})}" 
+                       class="btn btn-outline-dark btn-pill shadow-sm">
+                        <i class="fa-solid fa-tag me-1"></i> <span th:text="${tl.tenTheLoai}"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow hover-card overflow-hidden">
+            <div class="card-body p-0">
+                <table class="table table-hover align-middle text-center mb-0 table-custom">
+                    <thead>
+                        <tr>
+                            <th class="py-3"><i class="fa-solid fa-hashtag"></i> Mã SP</th>
+                            <th class="py-3 text-start"><i class="fa-solid fa-cube"></i> Tên Sản Phẩm</th>
+                            <th class="py-3"><i class="fa-solid fa-money-bill-wave"></i> Giá Bán</th>
+                            <th class="py-3"><i class="fa-solid fa-layer-group"></i> Thể Loại</th>
+                            <th class="py-3"><i class="fa-solid fa-bolt"></i> Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr th:each="sp : ${danhSachSP}">
+                            <td th:text="'#' + ${sp.id}" class="fw-bold text-muted"></td>
+                            <td th:text="${sp.tenSanPham}" class="text-start fw-semibold text-dark"></td>
+                            <td th:text="${#numbers.formatDecimal(sp.gia, 0, 'COMMA', 0, 'POINT')} + ' đ'" class="text-danger fw-bold fs-5"></td>
+                            <td><span class="badge bg-secondary px-3 py-2" th:text="${sp.theLoai.tenTheLoai}"></span></td>
+                            <td>
+                                <a th:href="@{/sanpham/chitiet/{id}(id=${sp.id})}" class="btn btn-sm btn-primary btn-pill">
+                                    <i class="fa-solid fa-eye me-1"></i> Chi tiết
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div th:if="${#lists.isEmpty(danhSachSP)}" class="alert alert-warning m-4 text-center">
+                    <i class="fa-solid fa-circle-exclamation fs-4 d-block mb-2"></i>
+                    Không có sản phẩm nào trong danh mục này!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5 shadow-lg">
+        <p class="mb-0">Đề thi Giữa kỳ 2 | Sinh viên thực hiện: <b>Hà Nguyễn Tiến Thịnh - 65133355</b></p>
+    </footer>
+
 </body>
 </html>

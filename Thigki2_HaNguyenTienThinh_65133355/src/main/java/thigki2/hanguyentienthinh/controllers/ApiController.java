@@ -28,7 +28,7 @@ public class ApiController {
     // 2. API Lấy danh sách sản phẩm theo một thể loại (truyền id thể loại)
     @GetMapping("/sanpham/theloai/{id}")
     public List<SanPham> laySanPhamTheoTheLoai(@PathVariable("id") int theLoaiId) {
-        // Gọi hàm findByTheLoaiId mà chúng ta đã khai báo trong SanPhamRepository
+       
         return sanPhamRepository.findByTheLoaiId(theLoaiId);
     }
 }
