@@ -2,74 +2,81 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Chi tiết Sản Phẩm</title>
+    <title>Thông tin sản phẩm | FIT-NTU</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f4f7f6; }
-        .product-card { border-radius: 20px; overflow: hidden; border: none; }
-        .card-header-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        body { background-color: #f4f7f6; min-height: 100vh; display: flex; flex-direction: column; }
+        .product-card { border-radius: 25px; overflow: hidden; border: none; transition: transform 0.3s ease; }
+        .card-header-gradient { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .detail-label { font-weight: 600; color: #6c757d; text-transform: uppercase; font-size: 0.85rem; }
+        .detail-value { font-weight: 600; color: #2c3e50; font-size: 1.1rem; }
     </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/sanpham">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold" th:href="@{/sanpham}">
                 <i class="fa-solid fa-store text-warning me-2"></i> FIT-NTU Store
+            </a>
+            <a th:href="@{/logout}" class="btn btn-outline-danger rounded-pill fw-bold px-3 btn-sm">
+                <i class="fa-solid fa-right-from-bracket me-1"></i> ĐĂNG XUẤT
             </a>
         </div>
     </nav>
 
-    <div class="container mt-5 flex-grow-1 d-flex align-items-center justify-content-center">
-        <div class="col-md-7">
+    <div class="container mt-5 flex-grow-1 d-flex align-items-center justify-content-center pb-5">
+        <div class="col-lg-6 col-md-8">
             
-            <div th:if="${sanPham != null}" class="card product-card shadow-lg">
-                <div class="card-header card-header-gradient text-white text-center py-4">
-                    <i class="fa-solid fa-gem fa-3x mb-2 text-warning"></i>
-                    <h3 class="mb-0 fw-bold">THÔNG TIN CHI TIẾT</h3>
+            <div th:if="${sanPham != null}" class="card product-card shadow-lg bg-white">
+                <div class="card-header card-header-gradient text-white text-center py-5">
+                    <i class="fa-solid fa-box-open fa-4x mb-3 text-warning"></i>
+                    <h3 class="mb-0 fw-bold">CHI TIẾT SẢN PHẨM</h3>
                 </div>
-                <div class="card-body p-5 bg-white">
-                    <div class="row mb-3 border-bottom pb-3">
-                        <div class="col-sm-4 text-muted"><i class="fa-solid fa-barcode me-2"></i>Mã Sản Phẩm</div>
-                        <div class="col-sm-8 fw-bold text-end" th:text="'#' + ${sanPham.id}"></div>
+                <div class="card-body p-4 p-md-5">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-5 detail-label"><i class="fa-solid fa-fingerprint me-2"></i>Mã định danh</div>
+                        <div class="col-7 detail-value text-end" th:text="'SP-' + ${sanPham.id}"></div>
                     </div>
-                    <div class="row mb-3 border-bottom pb-3">
-                        <div class="col-sm-4 text-muted"><i class="fa-solid fa-cube me-2"></i>Tên Sản Phẩm</div>
-                        <div class="col-sm-8 fw-bold fs-5 text-primary text-end" th:text="${sanPham.tenSanPham}"></div>
+                    <div class="row align-items-center mb-4">
+                        <div class="col-5 detail-label"><i class="fa-solid fa-tag me-2"></i>Tên sản phẩm</div>
+                        <div class="col-7 detail-value text-end text-primary" th:text="${sanPham.tenSanPham}"></div>
                     </div>
-                    <div class="row mb-3 border-bottom pb-3">
-                        <div class="col-sm-4 text-muted"><i class="fa-solid fa-layer-group me-2"></i>Thuộc Thể Loại</div>
-                        <div class="col-sm-8 text-end">
-                            <span class="badge bg-dark fs-6" th:text="${sanPham.theLoai.tenTheLoai}"></span>
+                    <div class="row align-items-center mb-4 border-bottom pb-4">
+                        <div class="col-5 detail-label"><i class="fa-solid fa-folder-tree me-2"></i>Loại hàng</div>
+                        <div class="col-7 text-end">
+                            <span class="badge bg-dark rounded-pill px-3 py-2" th:text="${sanPham.theLoai.tenTheLoai}"></span>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-sm-4 text-muted"><i class="fa-solid fa-tag me-2"></i>Giá Niêm Yết</div>
-                        <div class="col-sm-8 fw-bold fs-4 text-danger text-end" th:text="${#numbers.formatDecimal(sanPham.gia, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></div>
+                    <div class="text-center mt-2">
+                        <span class="detail-label d-block mb-1">Giá bán hiện tại</span>
+                        <h2 class="text-danger fw-bold" th:text="${#numbers.formatDecimal(sanPham.gia, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'"></h2>
                     </div>
                 </div>
-                <div class="card-footer text-center bg-light py-4 border-0">
-                    <a th:href="@{/sanpham}" class="btn btn-secondary rounded-pill px-5 py-2 fw-bold shadow-sm">
-                        <i class="fa-solid fa-arrow-left me-2"></i> QUAY LẠI CỬA HÀNG
+                <div class="card-footer bg-light py-4 text-center border-0">
+                    <a th:href="@{/sanpham}" class="btn btn-outline-dark rounded-pill px-5 fw-bold transition shadow-sm">
+                        <i class="fa-solid fa-chevron-left me-2"></i> TRỞ VỀ DANH SÁCH
                     </a>
                 </div>
             </div>
 
-            <div th:if="${sanPham == null}" class="alert alert-danger text-center shadow-lg p-5 rounded-4">
-                <i class="fa-solid fa-triangle-exclamation fa-4x mb-3"></i>
-                <h3 class="fw-bold">Ối! Lỗi rồi!</h3>
-                <p class="fs-5">Không tìm thấy sản phẩm bạn yêu cầu trên hệ thống.</p>
-                <a th:href="@{/sanpham}" class="btn btn-dark rounded-pill mt-3 px-4">
-                    <i class="fa-solid fa-house me-2"></i> Về trang chủ
+            <div th:if="${sanPham == null}" class="alert alert-white shadow-sm text-center p-5 rounded-4 border">
+                <i class="fa-solid fa-face-frown fa-4x mb-3 text-muted"></i>
+                <h4 class="fw-bold">Rất tiếc!</h4>
+                <p class="text-muted">Dữ liệu sản phẩm không tồn tại hoặc đã bị gỡ bỏ.</p>
+                <a th:href="@{/sanpham}" class="btn btn-dark rounded-pill px-4 mt-2">
+                    <i class="fa-solid fa-house me-2"></i> Quay lại trang chủ
                 </a>
             </div>
 
         </div>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5 shadow-lg">
-        <p class="mb-0">Đề thi Giữa kỳ 2 | Sinh viên thực hiện: <b>Hà Nguyễn Tiến Thịnh - 65133355</b></p>
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0 opacity-75 small">Sinh viên: <b>Hà Nguyễn Tiến Thịnh - 65133355</b> | Bài thi Phát triển Web 2</p>
+        </div>
     </footer>
 
 </body>
