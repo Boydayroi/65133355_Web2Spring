@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Sản Phẩm</title>
+    <style> table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; } </style>
+</head>
+<body>
+    <h2>Phân loại sản phẩm</h2>
+    <ul>
+        <li><a th:href="@{/sanpham}">Tất cả sản phẩm</a></li>
+        <li th:each="tl : ${danhSachTheLoai}">
+            <a th:href="@{/sanpham/theloai/{id}(id=${tl.id})}" th:text="${tl.tenTheLoai}"></a>
+        </li>
+    </ul>
+
+    <h2>Danh sách Sản Phẩm</h2>
+    <table>
+        <tr>
+            <th>Mã SP</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Thể Loại</th>
+            <th>Hành động</th>
+        </tr>
+        <tr th:each="sp : ${danhSachSP}">
+            <td th:text="${sp.id}"></td>
+            <td th:text="${sp.tenSanPham}"></td>
+            <td th:text="${sp.gia} + ' VNĐ'"></td>
+            <td th:text="${sp.theLoai.tenTheLoai}"></td>
+            <td><a th:href="@{/sanpham/chitiet/{id}(id=${sp.id})}">Xem chi tiết</a></td>
+        </tr>
+    </table>
+</body>
+</html>

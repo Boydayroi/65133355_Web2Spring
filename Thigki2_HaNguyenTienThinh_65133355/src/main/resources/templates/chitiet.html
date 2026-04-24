@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Sản Phẩm</title>
+</head>
+<body>
+    <h2>Chi Tiết Sản Phẩm</h2>
+    <div th:if="${sanPham != null}">
+        <p><b>Mã Sản Phẩm:</b> <span th:text="${sanPham.id}"></span></p>
+        <p><b>Tên Sản Phẩm:</b> <span th:text="${sanPham.tenSanPham}"></span></p>
+        <p><b>Giá bán:</b> <span th:text="${sanPham.gia} + ' VNĐ'"></span></p>
+        <p><b>Thuộc thể loại:</b> <span th:text="${sanPham.theLoai.tenTheLoai}"></span></p>
+    </div>
+    <div th:if="${sanPham == null}">
+        <p style="color:red;">Không tìm thấy sản phẩm!</p>
+    </div>
+    
+    <br><br>
+    <a th:href="@{/sanpham}">🔙 Quay lại danh sách</a>
+</body>
+</html>
