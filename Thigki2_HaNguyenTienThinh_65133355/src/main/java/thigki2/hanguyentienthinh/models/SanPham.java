@@ -1,5 +1,5 @@
 package thigki2.hanguyentienthinh.models;
 
-public class TheLoai {
+public class SanPham {
 
 }
